@@ -2,16 +2,37 @@
 <html>
 
 <head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-T64H93NW9V"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-T64H93NW9V');
+    </script>
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-TLZMZN26');</script>
+    <!-- End Google Tag Manager -->
     <meta charset="utf-8">
-    <title></title>
-    <meta name="author" content="">
-    <meta name="description" content="">
+    <title>Victoria Mobility Scooters</title>
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+    <meta name="author" content="Enkosi">
+    <meta name="description" content="Rent Your Mobility Scooter Today">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <link href="style.css" rel="stylesheet">
 </head>
 
 <body>
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-TLZMZN26"
+    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
 
     <section class="hero">
         <div class="hero-container">
@@ -21,7 +42,7 @@
             <div class="header">
                 <h1>Explore Victoria</h1>
                 <p>With Ease and Comfort</p>
-                <a class="btn btn-link" href="#get-a-quote">Hire Now</a>
+                <a class="btn btn-link" href="#get-a-quote">Hire A Mobility Scooter Now!</a>
             </div>
         </div>
     </section>
@@ -34,8 +55,9 @@
             <h3>Say goodbye to mobility limitations, and explore Victoria on your terms.</h3>
             <div class="form-container">
                 <form id="quote-form" action="https://formspree.io/f/mnqekwny" method="post" class="email-form">
-                    <input type="email" placeholder="Email Address" class="email-input" required>
-                    <textarea name="message" hidden></textarea>
+                    <input type="email" placeholder="Email Address" class="email-input">
+                    <textarea name="message" placeholder="Let us know your dates and scooter requirements or preferences" class="message-input"></textarea>
+                    <div class="g-recaptcha" data-sitekey="6LdISfIpAAAAAA4sJ1b3VHcF6otKcdMPgXHudZWT"></div>
                     <button type="submit" class="quote-button btn">Get A Quote</button>
                     <p id="quote-form-status"></p>
                 </form>
@@ -82,15 +104,8 @@
         <footer class="footer">
             <div class="inner-container">
                 <p class="copyright">© 2024 Victoria Mobility Scooters</p>
-                <a href="privacy-policy.html" class="privacy-link">Privacy Policy</a>
+                <a href="privacy.html" class="privacy-link">Privacy Policy</a>
             </div>
-            
-            <!-- <div class="container">
-                <div class="inner-container">
-                    <p class="copyright">© 2024 Victoria Mobility Scooters</p>
-                    <a href="privacy-policy.html" class="privacy-link">Privacy Policy</a>
-                </div>
-            </div> -->
         </footer>
     </section>
     
@@ -109,8 +124,9 @@
                 }
             }).then(response => {
                 if (response.ok) {
-                status.innerHTML = "Thanks for your submission!";
-                form.reset()
+                    window.location.href = "thankyou.html";
+                // status.innerHTML = "Thanks for your submission!";
+                // form.reset()
                 } else {
                 response.json().then(data => {
                     if (Object.hasOwn(data, 'errors')) {

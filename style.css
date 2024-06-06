@@ -141,6 +141,15 @@ body, html {
     border-radius: 5px; /* Rounded corners */
 }
 
+.message-input {
+    padding: 12px 15px; /* Increased padding for larger size */
+    font-size: 18px; /* Larger font size for visibility */
+    border: 2px solid #ccc; /* Subtle border */
+    border-radius: 5px; /* Rounded corners */
+    height: 100px; /* Increased height for message input */
+    font-family: Raleway, "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
 .btn {
     padding: 12px 15px; /* Uniform padding for a larger button */
     font-size: 18px;

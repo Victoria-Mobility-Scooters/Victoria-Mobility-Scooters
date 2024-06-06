@@ -1,0 +1,36 @@
+body {
+    background-color: #f5f5f5; /* Light grey, adjust as necessary to match the landing page */
+}
+
+.thank-you {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #f5f5f5; /* Light grey, adjust as necessary to match the landing page */
+    color: #333; /* Dark grey text */
+    text-align: center;
+}
+
+.thank-you h1 {
+    font-size: 32px;
+    margin-bottom: 20px;
+}
+
+.thank-you p {
+    font-size: 18px;
+}
+
+/* Responsive text sizing */
+@media (max-width: 600px) {
+    .thank-you h1 {
+        font-size: 24px;
+    }
+    .thank-you p {
+        font-size: 16px;
+    }
+}
+
+.thank-you-footer {
+    position: absolute;
+    bottom: 0;
+}
