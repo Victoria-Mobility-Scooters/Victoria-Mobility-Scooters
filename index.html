@@ -19,8 +19,8 @@
     })(window,document,'script','dataLayer','GTM-TLZMZN26');</script>
     <!-- End Google Tag Manager -->
     <meta charset="utf-8">
-    <title>Victoria Mobility Scooters</title>
-    <script src="https://www.google.com/recaptcha/api.js"></script>
+    <title>Rentals - Victoria Mobility Scooters</title>
+    <script src="https://www.google.com/recaptcha/api.js?render=6LdISfIpAAAAAA4sJ1b3VHcF6otKcdMPgXHudZWT"></script>
     <meta name="author" content="Enkosi">
     <meta name="description" content="Rent Your Mobility Scooter Today">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -57,7 +57,7 @@
                 <form id="quote-form" action="https://formspree.io/f/mnqekwny" method="post" class="email-form">
                     <input type="email" placeholder="Email Address" class="email-input">
                     <textarea name="message" placeholder="Let us know your dates and scooter requirements or preferences" class="message-input"></textarea>
-                    <button class="g-recaptcha quote-button btn" data-sitekey="6LdISfIpAAAAAA4sJ1b3VHcF6otKcdMPgXHudZWT" data-callback='onSubmit' data-action='submit' type="submit">Get A Quote</button>
+                    <button class="quote-button btn" type="submit">Get A Quote</button>
                     <p id="quote-form-status"></p>
                 </form>
             </div>
@@ -110,41 +110,43 @@
     
     <script>
         var form = document.getElementById("quote-form");
-        
-        async function handleSubmit(event) {
-            event.preventDefault();
+
+        function handleSubmit(event) {
             var status = document.getElementById("quote-form-status");
-            var data = new FormData(event.target);
-            fetch(event.target.action, {
-                method: form.method,
-                body: data,
-                headers: {
-                    'Accept': 'application/json'
-                }
-            }).then(response => {
-                if (response.ok) {
-                    window.location.href = "thankyou.html";
-                // status.innerHTML = "Thanks for your submission!";
-                // form.reset()
-                } else {
-                response.json().then(data => {
-                    if (Object.hasOwn(data, 'errors')) {
-                    status.innerHTML = data["errors"].map(error => error["message"]).join(", ")
-                    } else {
-                    status.innerHTML = "Oops! There was a problem submitting your form"
-                    }
-                })
-                }
-            }).catch(error => {
-                status.innerHTML = "Oops! There was a problem submitting your form"
+            grecaptcha.ready(function() {
+                grecaptcha.execute('6LdISfIpAAAAAA4sJ1b3VHcF6otKcdMPgXHudZWT', {action: 'submit'}).then(function(token) {
+
+                    event.preventDefault();
+                    var status = document.getElementById("quote-form-status");
+                    var data = new FormData(event.target);
+                    data.append("g-recaptcha-response", token);
+
+                    fetch(event.target.action, {
+                        method: form.method,
+                        body: data,
+                        headers: {
+                            'Accept': 'application/json'
+                        }
+                    }).then(response => {
+                        if (response.ok) {
+                            window.location.href = "thankyou.html";
+                        } else {
+                        response.json().then(data => {
+                            if (Object.hasOwn(data, 'errors')) {
+                            status.innerHTML = data["errors"].map(error => error["message"]).join(", ")
+                            } else {
+                            status.innerHTML = "Oops! There was a problem submitting your form"
+                            }
+                        })
+                        }
+                    }).catch(error => {
+                        status.innerHTML = "Oops! There was a problem submitting your form"
+                    });
+                });
             });
         }
+
         form.addEventListener("submit", handleSubmit)
-    </script>
-    <script>
-        function onSubmit(token) {
-            document.getElementById("quote-form").submit();
-        }
     </script>
 </body>
 
