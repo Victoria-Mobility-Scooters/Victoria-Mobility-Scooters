@@ -65,8 +65,24 @@ body, html {
     margin-bottom: 20px; /* Add space between paragraphs */
 }
 
-.hero, .footer-container {
-    background-image: url('assets/hero-bg.jpg');
+.hero {
+    background-image: url('assets/hero-bg-min.jpg');
+    background-image: url("assets/hero-bg-min-mobile.jpg");
+    background-image: -webkit-image-set(
+        url("assets/hero-bg-min-mobile.jpg") 1x,
+        url("assets/hero-bg-min.jpg") 2x);
+    background-image: image-set(
+        url("assets/hero-bg-min-mobile.jpg") 1x,
+        url("assets/hero-bg-min.jpg") 2x);
+    background-image: image-set(
+        url("assets/hero-bg-min-mobile.jpg") 1200w,
+        url("assets/hero-bg-min.jpg") 1920w);
+    background-size: cover;
+    background-position: center;
+}
+
+.footer-container {
+    background-image: url('assets/footer-min.jpg');
     background-size: cover;
     background-position: center;
 }
